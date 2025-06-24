@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRTWR | Footwear Collection</title>
+    <meta name="description" content="Premium streetwear footwear collection">
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <link rel="stylesheet" href="./footwear.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header with Animated Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="main.html" class="logo">STRTWR</a>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="SEARCH THE DRIP...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="nav-links">
+                <a href="./main.html" class="nav-link">ALL</a>
+                <a href="./clothing.html" class="nav-link">CLOTHING</a>
+                <a href="./footwear.html" class="nav-link active">FOOTWEAR</a>
+                <a href="./accessories.html" class="nav-link">ACCESSORIES</a>
+                <div class="cart-wrapper">
+                    <button class="cart-btn" aria-label="Shopping cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <div class="cart-preview">
+                        <div class="cart-preview-items"></div>
+                        <div class="cart-preview-total"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="mobile-menu" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Footwear Collection Section -->
+    <section id="footwear" class="products">
+        <div class="section-header">
+            <h2>Footwear Collection</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="sneakers">Sneakers</button>
+                <button class="filter-btn" data-filter="boots">Boots</button>
+                <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+            </div>
+        </div>
+        <div class="product-grid">
+            <div class="product-card" data-category="sneakers">
+                <div class="product-image">
+                    <img src="images/aforce1.jpg" alt=" Air Force 1" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name"> Air Force 1</h3>
+                    <div class="product-price">$199.99</div>
+                    <p class="product-description">Exclusive Air Force 1 with custom stitching and premium design.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="lifestyle">
+                <div class="product-image">
+                    <img src="images/high top sneak.jpg" alt="High-Top Sneakers" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Converse</h3>
+                    <div class="product-price">$159.99</div>
+                    <p class="product-description">Premium high-top sneakers with urban style and comfort.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Additional Footwear Products -->            <div class="product-card" data-category="sneakers">
+                <div class="product-image">
+                    <img src="images/jordan.jpg" alt="Jordan" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Air Jordan 1</h3>
+                    <div class="product-price">$129.99</div>
+                    <p class="product-description">Classic Air Jordans redesigned with premium textures and bold street energy.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="boots">
+                <div class="product-image">
+                    <img src="images/combat-boots.jpg" alt="Combat Boots" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Urban Combat Boots</h3>
+                    <div class="product-price">$189.99</div>
+                    <p class="product-description">Military-inspired combat boots with premium leather.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="sneakers">
+                <div class="product-image">
+                    <img src="images/retro-sneakers.jpg" alt="Retro Sneakers" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Retro Street Sneakers</h3>
+                    <div class="product-price">$149.99</div>
+                    <p class="product-description">Vintage-inspired sneakers with modern comfort.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="lifestyle">
+                <div class="product-image">
+                    <img src="images/slip-ons.jpg" alt="Premium Slip-ons" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Loafer Slip-ons</h3>
+                    <div class="product-price">$89.99</div>
+                    <p class="product-description">Comfortable slip-on shoes with street style elements.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="boots">
+                <div class="product-image">
+                    <img src="images/chelsea-boots.jpg" alt="Chelsea Boots" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Urban Chelsea Boots</h3>
+                    <div class="product-price">$169.99</div>
+                    <p class="product-description">Classic Chelsea boots with modern street appeal.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="sneakers">
+                <div class="product-image">
+                    <img src="images/basketball.jpg" alt="Basketball Sneakers" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Street Basketball</h3>
+                    <div class="product-price">$179.99</div>
+                    <p class="product-description">Performance basketball shoes with street style.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="sneakers">
+                <div class="product-image">
+                    <img src="images/limited-collab.jpg" alt="Limited Collaboration" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Artist Collab</h3>
+                    <div class="product-price">$229.99</div>
+                    <p class="product-description">Limited edition artist collaboration sneakers.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About STRTWR</h4>
+                <p>Premium streetwear destination for the urban fashion enthusiast. Authentic pieces, carefully curated for those who live and breathe street culture.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Stay Updated</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 STRTWR. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="footwear.js"></script>
+</body>
+</html>

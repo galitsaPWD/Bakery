@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRTWR | All Collections</title>
+    <meta name="description" content="Premium streetwear all collections">
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <link rel="stylesheet" href="./all.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header with Animated Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="main.html" class="logo">STRTWR</a>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="SEARCH THE DRIP...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="nav-links">
+                <a href="./all.html" class="nav-link active">ALL</a>
+                <a href="./clothing.html" class="nav-link">CLOTHING</a>
+                <a href="./footwear.html" class="nav-link">FOOTWEAR</a>
+                <a href="./accessories.html" class="nav-link">ACCESSORIES</a>
+                <div class="cart-wrapper">
+                    <button class="cart-btn" aria-label="Shopping cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <div class="cart-preview">
+                        <div class="cart-preview-items"></div>
+                        <div class="cart-preview-total"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="mobile-menu" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- All Collections Section -->
+    <section id="all-products" class="products">
+        <div class="section-header">
+            <h2>All Collections</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="clothing">Clothing</button>
+                <button class="filter-btn" data-filter="footwear">Footwear</button>
+                <button class="filter-btn" data-filter="accessories">Accessories</button>
+            </div>
+        </div>
+        <div class="product-grid">
+            <!-- Clothing Products -->
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/tech.jpg" alt="Tech Cargo Pants" class="product-img">
+                    <span class="product-badge best-seller">MOST BOUGHT ★</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Tech Cargo Pants</h3>
+                    <div class="product-price">$89.99</div>
+                    <p class="product-description">Tactical streetwear cargo pants with utility pockets.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/bomber.jpg" alt="Urban Bomber Jacket" class="product-img">
+                    <span class="product-badge limited">ONLY 5 LEFT!</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Urban Bomber Jacket</h3>
+                    <div class="product-price">$149.99</div>
+                    <p class="product-description">Premium bomber jacket with modern street aesthetic.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/tee.jpg" alt="Graphic Street Tee" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Graphic Street Tee</h3>
+                    <div class="product-price">$49.99</div>
+                    <p class="product-description">Limited edition graphic print t-shirt with bold urban visuals.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/varsity.jpg" alt="Varsity Jacket" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Varsity Jacket</h3>
+                    <div class="product-price">$199.99</div>
+                    <p class="product-description">Classic varsity jacket with premium wool blend and leather sleeves.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/oversized-tee.jpg" alt="Oversized Street Tee" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Oversized Street Tee</h3>
+                    <div class="product-price">$59.99</div>
+                    <p class="product-description">Oversized fit tee with minimalist urban design.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/joggers.jpg" alt="Tech Joggers" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Tech Joggers</h3>
+                    <div class="product-price">$79.99</div>
+                    <p class="product-description">Technical fabric joggers with zippered pockets.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/denim-jacket.jpg" alt="Vintage Denim Jacket" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Vintage Denim Jacket</h3>
+                    <div class="product-price">$129.99</div>
+                    <p class="product-description">Distressed denim jacket with custom patches.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/long-sleeve.jpg" alt="Long Sleeve Graphic Tee" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Long Sleeve Graphic Tee</h3>
+                    <div class="product-price">$69.99</div>
+                    <p class="product-description">Long sleeve tee with sleeve prints and back graphic.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/windbreaker.jpg" alt="Tech Windbreaker" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Tech Windbreaker</h3>
+                    <div class="product-price">$139.99</div>
+                    <p class="product-description">Lightweight technical windbreaker with reflective details.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Footwear Products -->
+            <div class="product-card" data-category="footwear">
+                <div class="product-image">
+                    <img src="images/aforce1.jpg" alt="Air Force 1" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Air Force 1</h3>
+                    <div class="product-price">$199.99</div>
+                    <p class="product-description">Exclusive Air Force 1 with custom stitching and premium design.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="footwear">
+                <div class="product-image">
+                    <img src="images/high top sneak.jpg" alt="High-Top Sneakers" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Converse</h3>
+                    <div class="product-price">$159.99</div>
+                    <p class="product-description">Premium high-top sneakers with urban style and comfort.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="footwear">
+                <div class="product-image">
+                    <img src="images/jordan.jpg" alt="Jordan" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Air Jordan 1</h3>
+                    <div class="product-price">$129.99</div>
+                    <p class="product-description">Classic Air Jordans redesigned with premium textures and bold street energy.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="footwear">
+                <div class="product-image">
+                    <img src="images/combat-boots.jpg" alt="Combat Boots" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Urban Combat Boots</h3>
+                    <div class="product-price">$189.99</div>
+                    <p class="product-description">Military-inspired combat boots with premium leather.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="footwear">
+                <div class="product-image">
+                    <img src="images/retro-sneakers.jpg" alt="Retro Sneakers" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Retro Street Sneakers</h3>
+                    <div class="product-price">$149.99</div>
+                    <p class="product-description">Vintage-inspired sneakers with modern comfort.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="footwear">
+                <div class="product-image">
+                    <img src="images/slip-ons.jpg" alt="Premium Slip-ons" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Loafer Slip-ons</h3>
+                    <div class="product-price">$89.99</div>
+                    <p class="product-description">Comfortable slip-on shoes with street style elements.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="footwear">
+                <div class="product-image">
+                    <img src="images/chelsea-boots.jpg" alt="Chelsea Boots" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Urban Chelsea Boots</h3>
+                    <div class="product-price">$169.99</div>
+                    <p class="product-description">Classic Chelsea boots with modern street appeal.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="footwear">
+                <div class="product-image">
+                    <img src="images/basketball.jpg" alt="Basketball Sneakers" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Street Basketball</h3>
+                    <div class="product-price">$179.99</div>
+                    <p class="product-description">Performance basketball shoes with street style.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="footwear">
+                <div class="product-image">
+                    <img src="images/limited-collab.jpg" alt="Limited Collaboration" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Artist Collab</h3>
+                    <div class="product-price">$229.99</div>
+                    <p class="product-description">Limited edition artist collaboration sneakers.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Accessories Products -->
+            <div class="product-card" data-category="accessories">
+                <div class="product-image">
+                    <img src="images/necklace.jpg" alt="Urban Chain Necklace" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Urban Chain Necklace</h3>
+                    <div class="product-price">$79.99</div>
+                    <p class="product-description">Premium stainless steel moon-star chain necklace.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories">
+                <div class="product-image">
+                    <img src="images/duffelbag.jpg" alt="Duffel Bag" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Nike Air Duffel Bag</h3>
+                    <div class="product-price">$129.99</div>
+                    <p class="product-description">Spacious Nike Air duffel bag with durable build and street-ready style.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories">
+                <div class="product-image">
+                    <img src="images/beanie.jpg" alt="Urban Beanie" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Street Beanie</h3>
+                    <div class="product-price">$34.99</div>
+                    <p class="product-description">Premium knit beanie with embroidered logo.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories">
+                <div class="product-image">
+                    <img src="images/bracelet.jpg" alt="Chain Bracelet" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Link Bracelet</h3>
+                    <div class="product-price">$49.99</div>
+                    <p class="product-description">Stainless steel link bracelet with custom clasp.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories">
+                <div class="product-image">
+                    <img src="images/crossbody.jpg" alt="Crossbody Bag" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Carhartt Wip Bag</h3>
+                    <div class="product-price">$89.99</div>
+                    <p class="product-description">Compact Carhartt WIP essentials bag built for everyday carry and urban function.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories">
+                <div class="product-image">
+                    <img src="images/cap.jpg" alt="Structured Cap" class="product-img">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Winter Dog Ear Retro Crown</h3>
+                    <div class="product-price">$39.99</div>
+                    <p class="product-description">Retro crown cap with winter dog ear flaps for cold-weather streetwear flair.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About STRTWR</h4>
+                <p>Premium streetwear destination for the urban fashion enthusiast. Authentic pieces, carefully curated for those who live and breathe street culture.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Stay Updated</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 STRTWR. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="all.js"></script>
+</body>
+</html>

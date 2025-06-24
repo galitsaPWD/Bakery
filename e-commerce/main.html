@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>STRTWR | Urban Streetwear Culture</title>
+    <meta name="description" content="Premium streetwear, vintage finds, and urban culture essentials">
+    <link rel="stylesheet" href="./main.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header with Animated Navigation -->
+    <header class="header">
+        <nav class="navbar">            <div class="nav-brand">
+                <a href="main.html" class="logo">STRTWR</a>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="SEARCH THE DRIP...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-results" id="searchResults"></div>
+            </div>            <div class="nav-links">
+                <a href="./all.html" class="nav-link">ALL</a>
+                <a href="./clothing.html" class="nav-link">CLOTHING</a>
+                <a href="./footwear.html" class="nav-link">FOOTWEAR</a>
+                <a href="./accessories.html" class="nav-link">ACCESSORIES</a>
+                <div class="cart-wrapper">
+                    <button class="cart-btn" aria-label="Shopping cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <div class="cart-preview">
+                        <div class="cart-preview-items"></div>
+                        <div class="cart-preview-total"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="mobile-menu" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Dynamic Background -->    <section class="hero">
+        <div class="hero-slider">            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&q=80&w=2070');">
+                <div class="hero-content">
+                    <h1>STREET CULTURE</h1>
+                    <p>Raw. Authentic. Unfiltered.</p>
+                    <a href="#featured" class="cta-button">DROP IN</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&q=80&w=2070');">
+                <div class="hero-content">
+                    <h1>New Arrivals</h1>
+                    <p>Be the first to wear our latest styles</p>
+                    <a href="#new-arrivals" class="cta-button">Explore</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-dots"></div>
+    </section>
+
+    <!-- Featured Products with Filter -->
+    <section id="featured" class="products">
+        <div class="section-header">
+            <h2>Featured Products</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="clothing">Clothing</button>
+                <button class="filter-btn" data-filter="accessories">Accessories</button>
+                <button class="filter-btn" data-filter="footwear">Footwear</button>
+            </div>        </div>
+        <div class="product-grid">
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/tech.jpg" alt="Tech Cargo Pants" class="product-img">
+                    <span class="product-badge best-seller">MOST BOUGHT ★</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Tech Cargo Pants</h3>
+                    <div class="product-price">$89.99</div>
+                    <p class="product-description">Tactical streetwear cargo pants with utility pockets.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/bomber.jpg" alt="Urban Bomber Jacket" class="product-img">
+                    <span class="product-badge limited">ONLY 5 LEFT!</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Urban Bomber Jacket</h3>
+                    <div class="product-price">$149.99</div>
+                    <p class="product-description">Premium bomber jacket with modern street aesthetic.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="footwear">
+                <div class="product-image">
+                    <img src="images/af1.jpg" alt="Limited Air Force 1" class="product-img">
+                    <span class="product-badge exclusive">EXCLUSIVE DROP</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Limited Air Force 1</h3>
+                    <div class="product-price">$199.99</div>
+                    <p class="product-description">Exclusive Air Force 1 with custom stitching and premium street design.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>            </div>
+            
+            <div class="product-card" data-category="accessories">
+                <div class="product-image">
+                    <img src="images/necklace.jpg" alt="Urban Chain Necklace" class="product-img">
+                    <span class="product-badge best-seller">TRENDING NOW</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Urban Chain Necklace</h3>
+                    <div class="product-price">$79.99</div>
+                    <p class="product-description">Premium stainless steel moon-star chain necklace.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="product-card" data-category="clothing">
+                <div class="product-image">
+                    <img src="images/tee.jpg" alt="Graphic Street Tee" class="product-img">
+                    <span class="product-badge exclusive">NEW ARRIVAL</span>
+                </div>                <div class="product-info">
+                    <h3 class="product-name">Graphic Street Tee</h3>
+                    <div class="product-price">$49.99</div>
+                    <p class="product-description">Limited edition graphic print t-shirt with bold urban visuals and soft cotton comfort.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="footwear">
+                <div class="product-image">
+                    <img src="images/high top sneak.jpg" alt="High-Top Sneakers" class="product-img">
+                    <span class="product-badge limited">HOT ITEM</span>
+                </div>                <div class="product-info">
+                    <h3 class="product-name">Converse</h3>
+                    <div class="product-price">$159.99</div>
+                    <p class="product-description">Premium high-top sneakers with urban style and elevated comfort.</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->    <section id="categories" class="categories">
+        <h2>EXPLORE THE CULTURE</h2>
+        <div class="category-grid">              <div class="category-card" data-category="streetwear">
+                <div class="category-image">
+                    <img src="images/streetwear.jpg" alt="Streetwear Essentials" class="category-img">
+                </div>
+                <h3>Streetwear</h3>
+            </div>
+            <div class="category-card" data-category="vintage">
+                <div class="category-image">
+                    <img src="images/vintage.jpg" alt="Vintage Finds" class="category-img">
+                </div>
+                <h3>Vintage</h3>
+            </div>
+            <div class="category-card" data-category="sneakers">
+                <div class="category-image">
+                    <img src="images/sneaker.jpg" alt="Sneaker Culture" class="category-img">
+                </div>
+                <h3>Sneakers</h3>
+            </div>
+        </div>
+    </section>    <!-- Toast Notifications -->
+    <div class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About STRTWR</h4>
+                <p>Premium streetwear destination for the urban fashion enthusiast. Authentic pieces, carefully curated for those who live and breathe street culture.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Stay Updated</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 STRTWR. All rights reserved.</p>
+        </div>
+    </footer>    <script src="main.js"></script>
+</body>
+</html>

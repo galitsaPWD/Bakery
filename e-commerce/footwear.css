@@ -1,0 +1,238 @@
+/* Footwear Page Specific Styles */
+.products {
+    padding-top: 120px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    font-family: var(--font-heading);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background: var(--dark-gray);
+    color: var(--secondary);
+    border: 2px solid var(--light-gray);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: 1;
+    opacity: 0;
+}
+
+.filter-btn:hover::before,
+.filter-btn.active::before {
+    width: 200%;
+    height: 200%;
+    opacity: 0.1;
+}
+
+.filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--secondary);
+    transform: scale(1.05);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    opacity: 1;
+    transform: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+}
+
+.product-card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    overflow: hidden;
+    background: var(--dark-gray);
+}
+
+.product-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    justify-content: space-between;
+}
+
+.product-name {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--secondary);
+}
+
+.product-price {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.product-description {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.add-to-cart {
+    background: var(--accent);
+    color: var(--secondary);
+    border: 2px solid var(--accent);
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.add-to-cart:hover {
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Price Tag Animation */
+.price {
+    position: relative;
+    display: inline-block;
+}
+
+.price::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top: 50%;
+    height: 2px;
+    background: var(--neon);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .price::before {
+    transform: scaleX(1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .products {
+        padding-top: 100px;
+    }
+
+    .section-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        padding: 1rem;
+    }
+
+    .filter-buttons {
+        padding: 0 1rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
