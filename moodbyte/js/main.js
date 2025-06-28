@@ -23,7 +23,7 @@ const productiveThemeBtn = document.querySelector('[data-theme="productive"]');
 
 let currentTheme = localStorage.getItem('theme') || 'night';
 let ambientAudio = null;
-let ambientEnabled = false;
+let ambientEnabled = JSON.parse(localStorage.getItem('ambientEnabled') || 'true');
 
 // const NOTE_COLORS = ['#ffc', '#c2f0fc', '#d0f5c7', '#ffd6e0', '#e0e7ff', '#ffdfba'];
 
@@ -360,6 +360,16 @@ window.addEventListener('DOMContentLoaded', async () => {
   
   // Initialize widget toggles
   initializeWidgetToggles();
+
+  const settingsBtn = document.getElementById('settings-btn');
+  if (settingsBtn) {
+    settingsBtn.addEventListener('click', () => {
+      openSettingsModal();
+    });
+  }
+  
+  // Initialize settings modal functionality
+  initializeSettingsModal();
 });
 
 // --- Animated Background (floating stars) ---
@@ -493,3 +503,265 @@ function initializeWidgetToggles() {
 document.addEventListener('DOMContentLoaded', () => {
   initializeWidgetToggles();
 });
+
+// Settings Modal Functions
+function openSettingsModal() {
+  const modal = document.getElementById('settings-modal');
+  if (modal) {
+    modal.classList.add('show');
+    loadSettingsValues();
+  }
+}
+
+function closeSettingsModal() {
+  const modal = document.getElementById('settings-modal');
+  if (modal) {
+    modal.classList.remove('show');
+  }
+}
+
+function initializeSettingsModal() {
+  const modal = document.getElementById('settings-modal');
+  const closeBtn = document.getElementById('close-settings');
+  
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeSettingsModal);
+  }
+  
+  // Close modal when clicking outside
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeSettingsModal();
+      }
+    });
+  }
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
+      closeSettingsModal();
+    }
+  });
+  
+  // Initialize settings controls
+  initializeSettingsControls();
+}
+
+function loadSettingsValues() {
+  // Load saved values into settings form
+  const sfxToggle = document.getElementById('toggle-sfx');
+  const ambientToggle = document.getElementById('toggle-ambient');
+  const musicToggle = document.getElementById('toggle-music');
+  const defaultPomodoro = document.getElementById('default-pomodoro');
+  const defaultMood = document.getElementById('default-mood');
+  const fontSizeSlider = document.getElementById('font-size-slider');
+  const fontSizeValue = document.getElementById('font-size-value');
+  const highContrastToggle = document.getElementById('high-contrast-toggle');
+  
+  if (sfxToggle) sfxToggle.checked = localStorage.getItem('sfxEnabled') !== 'false';
+  if (ambientToggle) ambientToggle.checked = JSON.parse(localStorage.getItem('ambientEnabled') || 'true');
+  if (musicToggle) musicToggle.checked = localStorage.getItem('musicEnabled') !== 'false';
+  if (defaultPomodoro) defaultPomodoro.value = localStorage.getItem('defaultPomodoro') || 25;
+  if (defaultMood) defaultMood.value = localStorage.getItem('defaultMood') || 'great';
+  if (fontSizeSlider) {
+    fontSizeSlider.value = localStorage.getItem('fontSize') || 16;
+    if (fontSizeValue) fontSizeValue.textContent = fontSizeSlider.value;
+  }
+  if (highContrastToggle) highContrastToggle.checked = localStorage.getItem('highContrast') === 'true';
+  
+  // Load custom theme preview
+  const savedCustomTheme = JSON.parse(localStorage.getItem('customTheme') || '{}');
+  const customThemePreview = document.getElementById('custom-theme-preview');
+  if (customThemePreview && savedCustomTheme.bgImage) {
+    customThemePreview.style.backgroundImage = `url('${savedCustomTheme.bgImage}')`;
+    customThemePreview.style.backgroundSize = 'cover';
+  }
+}
+
+function initializeSettingsControls() {
+  // Custom theme controls
+  const bgImageInput = document.getElementById('custom-bg-image');
+  const saveCustomThemeBtn = document.getElementById('save-custom-theme');
+  const customThemePreview = document.getElementById('custom-theme-preview');
+  const customFileLabel = document.querySelector('.custom-file-label');
+  const customFileName = document.getElementById('custom-file-name');
+
+  // Preferences
+  const sfxToggle = document.getElementById('toggle-sfx');
+  const ambientToggle = document.getElementById('toggle-ambient');
+  const musicToggle = document.getElementById('toggle-music');
+  const defaultPomodoro = document.getElementById('default-pomodoro');
+  const defaultMood = document.getElementById('default-mood');
+
+  // Accessibility
+  const fontSizeSlider = document.getElementById('font-size-slider');
+  const fontSizeValue = document.getElementById('font-size-value');
+  const highContrastToggle = document.getElementById('high-contrast-toggle');
+
+  // Data management
+  const exportBtn = document.getElementById('export-data');
+  const importBtn = document.getElementById('import-data');
+  const clearBtn = document.getElementById('clear-data');
+
+  // About/help
+  const openHelp = document.getElementById('open-help');
+
+  // Custom background file handling
+  if (customFileLabel && bgImageInput) {
+    customFileLabel.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        bgImageInput.click();
+      }
+    });
+  }
+  
+  if (bgImageInput && customFileName) {
+    bgImageInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        customFileName.textContent = file.name;
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          customThemePreview.style.backgroundImage = `url('${evt.target.result}')`;
+          customThemePreview.style.backgroundSize = 'cover';
+          bgImageInput.value = '';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        customFileName.textContent = '';
+        customThemePreview.style.backgroundImage = '';
+        bgImageInput.value = '';
+      }
+    });
+  }
+
+  if (saveCustomThemeBtn) {
+    saveCustomThemeBtn.addEventListener('click', () => {
+      let bgImageData = JSON.parse(localStorage.getItem('customTheme') || '{}').bgImage;
+      if (bgImageInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          bgImageData = evt.target.result;
+          saveTheme();
+        };
+        reader.readAsDataURL(bgImageInput.files[0]);
+      } else {
+        saveTheme();
+      }
+      function saveTheme() {
+        const theme = { bgImage: bgImageData };
+        localStorage.setItem('customTheme', JSON.stringify(theme));
+        customThemePreview.style.backgroundImage = `url('${bgImageData}')`;
+        customThemePreview.style.backgroundSize = 'cover';
+        showSnackbar('Custom background saved!');
+      }
+    });
+  }
+
+  // Save settings on change
+  if (sfxToggle) sfxToggle.addEventListener('change', () => localStorage.setItem('sfxEnabled', sfxToggle.checked));
+  if (ambientToggle) ambientToggle.addEventListener('change', () => {
+    localStorage.setItem('ambientEnabled', ambientToggle.checked);
+    // Update ambient state in main app
+    ambientEnabled = ambientToggle.checked;
+    if (ambientEnabled) {
+      playAmbient(localStorage.getItem('theme') || 'chill');
+    } else {
+      stopAmbient();
+    }
+  });
+  if (musicToggle) musicToggle.addEventListener('change', () => localStorage.setItem('musicEnabled', musicToggle.checked));
+  if (defaultPomodoro) defaultPomodoro.addEventListener('input', () => localStorage.setItem('defaultPomodoro', defaultPomodoro.value));
+  if (defaultMood) defaultMood.addEventListener('change', () => localStorage.setItem('defaultMood', defaultMood.value));
+
+  // Accessibility
+  if (fontSizeSlider) {
+    fontSizeSlider.addEventListener('input', () => {
+      if (fontSizeValue) fontSizeValue.textContent = fontSizeSlider.value;
+      localStorage.setItem('fontSize', fontSizeSlider.value);
+      document.body.style.fontSize = fontSizeSlider.value + 'px';
+    });
+  }
+  if (highContrastToggle) {
+    highContrastToggle.addEventListener('change', () => {
+      localStorage.setItem('highContrast', highContrastToggle.checked);
+      document.body.classList.toggle('high-contrast', highContrastToggle.checked);
+    });
+  }
+
+  // Data Management
+  if (exportBtn) {
+    exportBtn.addEventListener('click', () => {
+      const data = {
+        notes: localStorage.getItem('notesData'),
+        stats: localStorage.getItem('statsData'),
+        moods: localStorage.getItem('moodHistory'),
+        settings: {
+          customTheme: localStorage.getItem('customTheme'),
+          sfxEnabled: localStorage.getItem('sfxEnabled'),
+          ambientEnabled: localStorage.getItem('ambientEnabled'),
+          musicEnabled: localStorage.getItem('musicEnabled'),
+          defaultPomodoro: localStorage.getItem('defaultPomodoro'),
+          defaultMood: localStorage.getItem('defaultMood'),
+          fontSize: localStorage.getItem('fontSize'),
+          highContrast: localStorage.getItem('highContrast')
+        }
+      };
+      const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'moodbyte-data.json';
+      a.click();
+      URL.revokeObjectURL(url);
+      showSnackbar('Data exported successfully!');
+    });
+  }
+  
+  if (importBtn) {
+    importBtn.addEventListener('click', () => {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'application/json';
+      input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          try {
+            const data = JSON.parse(evt.target.result);
+            if (data.notes) localStorage.setItem('notesData', data.notes);
+            if (data.stats) localStorage.setItem('statsData', data.stats);
+            if (data.moods) localStorage.setItem('moodHistory', data.moods);
+            if (data.settings) {
+              Object.entries(data.settings).forEach(([k, v]) => localStorage.setItem(k, v));
+            }
+            showSnackbar('Data imported! Please refresh the app.');
+          } catch (err) {
+            showSnackbar('Invalid data file.');
+          }
+        };
+        reader.readAsText(file);
+      };
+      input.click();
+    });
+  }
+  
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      if (confirm('Are you sure you want to clear all MoodByte data? This cannot be undone.')) {
+        localStorage.clear();
+        showSnackbar('All data cleared. Please refresh the app.');
+      }
+    });
+  }
+  
+  if (openHelp) {
+    openHelp.addEventListener('click', (e) => {
+      e.preventDefault();
+      showKeyboardShortcutsHelp();
+    });
+  }
+}

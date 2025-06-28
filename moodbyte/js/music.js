@@ -330,6 +330,12 @@ function playMusic() {
   isMusicPlaying = true;
   document.getElementById('play-music').innerHTML = '<i class="fas fa-pause"></i>';
   
+  // Enable track name scrolling animation
+  const trackNameElement = document.getElementById('track-name');
+  if (trackNameElement && trackNameElement.classList.contains('scrolling')) {
+    trackNameElement.classList.add('playing');
+  }
+  
   // Mute ambient sound when music is playing
   if (window.ambientAudio && window.ambientAudio.volume > 0) {
     window.ambientAudio.volume = 0;
@@ -339,6 +345,11 @@ function playMusic() {
     console.error('Music play error:', error);
     isMusicPlaying = false;
     document.getElementById('play-music').innerHTML = '<i class="fas fa-play"></i>';
+    
+    // Disable track name scrolling animation on error
+    if (trackNameElement && trackNameElement.classList.contains('scrolling')) {
+      trackNameElement.classList.remove('playing');
+    }
     
     // Restore ambient sound if music fails to play
     if (window.ambientAudio) {
@@ -357,6 +368,12 @@ function pauseMusic() {
   isMusicPlaying = false;
   music.pause();
   document.getElementById('play-music').innerHTML = '<i class="fas fa-play"></i>';
+  
+  // Disable track name scrolling animation
+  const trackNameElement = document.getElementById('track-name');
+  if (trackNameElement && trackNameElement.classList.contains('scrolling')) {
+    trackNameElement.classList.remove('playing');
+  }
   
   // Restore ambient sound when music is paused
   if (window.ambientAudio) {
@@ -482,22 +499,34 @@ function updateDeleteButtonVisibility() {
 function updateTrackNameDisplay(name) {
   const trackNameElement = document.getElementById('track-name');
   if (trackNameElement) {
+    // Update the text directly
     trackNameElement.textContent = name;
-    setTimeout(updateTrackNameScrolling, 200);
+    
+    // Trigger scrolling update immediately
+    updateTrackNameScrolling();
   }
 }
 
 function updateTrackNameScrolling() {
   const trackNameElement = document.getElementById('track-name');
   if (!trackNameElement) return;
-  trackNameElement.classList.remove('scrolling', 'smooth');
-  trackNameElement.style.transform = '';
+  
+  // Remove existing classes and reset
+  trackNameElement.classList.remove('scrolling', 'smooth', 'playing');
+  trackNameElement.removeAttribute('data-text');
+  
+  // Check if text is overflowing
   const isOverflowing = trackNameElement.scrollWidth > trackNameElement.clientWidth;
+  
   if (isOverflowing) {
+    // Set up scrolling immediately without delays
     trackNameElement.setAttribute('data-text', trackNameElement.textContent);
     trackNameElement.classList.add('scrolling', 'smooth');
-  } else {
-    trackNameElement.removeAttribute('data-text');
+    
+    // Only add playing class if music is actually playing
+    if (isMusicPlaying) {
+      trackNameElement.classList.add('playing');
+    }
   }
 }
 
